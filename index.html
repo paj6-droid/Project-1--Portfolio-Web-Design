@@ -42,10 +42,22 @@
 		body {
 			margin: 0;
 			font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-			background: radial-gradient(1200px 800px at 10% 10%, rgba(46,204,113,.08), transparent 40%), var(--color-bg);
+			background:
+				radial-gradient(1200px 800px at 10% 10%, rgba(46,204,113,.08), transparent 40%),
+				linear-gradient(120deg, rgba(34,49,63,0.48) 0%, rgba(46,204,113,0.15) 57%, rgba(19,27,24,0.77) 100%),
+				var(--color-bg);
+			background-attachment: fixed;
+			background-size: 200% 200%, 180% 180%, cover;
+			animation: premium-fade-bg 16s infinite alternate cubic-bezier(.7,.1,.3,.9);
+			min-height: 100vh;
 			color: var(--color-text);
 			line-height: 1.6;
 			scroll-behavior: smooth;
+		}
+		@keyframes premium-fade-bg {
+		0% { background-position: 0% 0%, 50% 90%, center; }
+		50% { background-position: 40% 30%, 70% 40%, center; }
+		100% { background-position: 70% 80%, 0% 0%, center; }
 		}
 
 		/* Typography */
@@ -624,7 +636,7 @@
 			<!-- Project cards -->
 			<div class="card-grid stagger-parent">
 				<article class="card stagger-item" id="project-1">
-					<img src="assets/img/placeholder-1.png" alt="Placeholder image for Project One" />
+					<img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Modern code and desk setup for Project One" />
 					<div class="card-body">
 						<h3>Project One</h3>
 						<p>Short description of the project goals, role, and tech.</p>
@@ -636,7 +648,7 @@
 				</article>
 
 				<article class="card stagger-item" id="project-2">
-					<img src="assets/img/placeholder-2.png" alt="Placeholder image for Project Two" />
+					<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Premium web design screens for Project Two" />
 					<div class="card-body">
 						<h3>Project Two</h3>
 						<p>Core features, performance wins, or testing strategy used.</p>
@@ -648,7 +660,7 @@
 				</article>
 
 				<article class="card stagger-item" id="project-3">
-					<img src="assets/img/placeholder-3.png" alt="Placeholder image for Project Three" />
+					<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Developer hand on keyboard, stylish workspace for Project Three" />
 					<div class="card-body">
 						<h3>Project Three</h3>
 						<p>Emphasize reliability, coverage, and automation results.</p>
