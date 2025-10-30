@@ -79,9 +79,37 @@
 		.fade-in { opacity: 0; transform: translateY(48px); transition: opacity .8s cubic-bezier(.36,1.35,.24,1), transform .8s cubic-bezier(.36,1.35,.24,1); }
 		.fade-in.visible { opacity: 1; transform: none; }
 		.stagger-parent.visible .fade-in { transition-delay: .13s; }
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.animated-bg svg {
+  position: absolute;
+  will-change: filter, transform;
+  opacity: 0.19;
+}
+.animated-bg .blob1 { left:-210px; top:-170px; width:630px; animation:blob1move 18s ease-in-out infinite alternate; }
+.animated-bg .blob2 { right:-190px; bottom:-210px; width:540px; animation:blob2move 22s ease-in-out infinite alternate; }
+.animated-bg .dot1 { left:13vw; top:53vh; width:80px; opacity:0.09; animation:dotfloat1 10s linear infinite alternate;}
+.animated-bg .dot2 { right:14vw; top:27vh; width:40px; opacity:0.13; animation:dotfloat2 13s linear infinite alternate; }
+
+@keyframes blob1move { to { filter: blur(2.3px) brightness(1.09); transform:scale(1.13) translateY(41px) rotate(9deg); } }
+@keyframes blob2move { to { filter: blur(3.3px) brightness(0.94); transform:scale(0.97) translateY(-29px) rotate(-8deg); } }
+@keyframes dotfloat1 { 0%{transform:translateY(0);} 100%{transform:translateY(-40px);} }
+@keyframes dotfloat2 { 0%{transform:translateY(0);} 100%{transform:translateY(38px);} }
+main, header, .site-footer { position: relative; z-index: 1; }
 	</style>
 </head>
 <body>
+	<div class="animated-bg" aria-hidden="true">
+		<svg class="blob1" viewBox="0 0 600 600"><defs><linearGradient id="bgblob1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2ecc71"/><stop offset="1" stop-color="#1b2320"/></linearGradient></defs><path fill="url(#bgblob1)" d="M377 18q83 28 102.5 114.5T476 319.5q-42 72.5-122 154.5T183.5 418Q81 336 117.5 202.5T292 29q85-11 85 0z"/></svg>
+		<svg class="blob2" viewBox="0 0 600 600"><defs><linearGradient id="bgblob2" x1="1" y1="0" x2="0" y2="1"><stop stop-color="#239b56"/><stop offset="1" stop-color="#101315"/></linearGradient></defs><path fill="url(#bgblob2)" d="M307 39q87-12 140 47t44 145q-9 93-95 142.5T171 312Q64 244 125 120q47-94 182-81z"/></svg>
+		<svg class="dot1" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#2ecc71"/></svg>
+		<svg class="dot2" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#239b56"/></svg>
+	</div>
 	<header class="site-header">
 		<div class="container header-inner">
 			<a href="#home" class="logo">PURVA JAYANI</a>
