@@ -549,6 +549,19 @@
   background: linear-gradient(103deg, rgba(46,204,113,0.06) 8%, rgba(34,49,63,0.07) 92%);
   transition: box-shadow 0.28s, background 0.32s;
 }
+/* Tidy up vertical spacing for premium compact look */
+section.container { padding-block: 2.1rem !important; }
+.stack-lg > * + * { margin-top: 1.2rem; }
+.stack-xl > * + * { margin-top: 2.1rem; }
+.card-grid, .skills-grid, .services-grid, .partners-grid { gap: 1.3rem !important; padding-block: 1.6rem !important; }
+@media (min-width: 600px) {
+  .premium-skills-grid, .skills-grid { gap: 1.5rem !important; }
+}
+@media (min-width: 860px) {
+  section.container { padding-block: 2.9rem !important; }
+  .card-grid, .skills-grid, .services-grid, .partners-grid { gap: 2rem !important; padding-block: 2.2rem !important; }
+}
+.premium-skills-col ul { margin: 0 0 0 1.05rem; }
 	</style>
 </head>
 <body>
