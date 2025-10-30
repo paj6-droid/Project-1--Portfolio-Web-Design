@@ -474,6 +474,27 @@
 			.carousel-track { transition: none; }
 			.nav-toggle-bar { transition: none; }
 		}
+
+.fade-in {
+	opacity: 0;
+	transform: translateY(32px);
+	transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.35,.7,.12,1);
+}
+.fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Enhanced button hover animation */
+.btn, .btn-primary {
+	transition: background 0.24s cubic-bezier(.48,1.5,.51,1), color 0.18s, transform 0.26s cubic-bezier(.22,1,.36,1);
+}
+.btn:hover, .btn:focus {
+	transform: translateY(-2px) scale(1.06);
+	box-shadow: 0 4px 14px -3px rgba(46,204,113,.28);
+	background: linear-gradient(135deg, var(--color-primary), var(--color-primary-700));
+	color: #001a0a;
+}
 	</style>
 </head>
 <body>
@@ -505,7 +526,7 @@
 
 	<main id="main">
 		<!-- Home -->
-		<section id="home" class="hero container" aria-labelledby="hero-title">
+		<section id="home" class="hero container fade-in" aria-labelledby="hero-title">
 			<div class="hero-content">
 				<span class="hero-eyebrow">Software and Data Engineering Student at NJIT</span>
 				<h1 id="hero-title">Hi, I am Purva Jayani</h1>
@@ -531,8 +552,8 @@
 		</section>
 
 		<!-- About -->
-		<section id="about" class="container stack-lg" aria-labelledby="about-title">
-			<h2 id="about-title">About Me</h2>
+		<section id="about" class="container stack-lg fade-in" aria-labelledby="about-title">
+			<h2 id="about-title" class="fade-in">About Me</h2>
 			<div class="about-layout">
 				<div class="about-visual" aria-hidden="true" style="display: flex; align-items: center; justify-content: center;">
 					<svg width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="about-svg-visual">
@@ -558,8 +579,8 @@
 		</section>
 
 		<!-- Recent Work -->
-		<section id="projects" class="container stack-xl" aria-labelledby="projects-title">
-			<h2 id="projects-title">Recent Work</h2>
+		<section id="projects" class="container stack-xl fade-in" aria-labelledby="projects-title">
+			<h2 id="projects-title" class="fade-in">Recent Work</h2>
 
 			<!-- Carousel -->
 			<div class="carousel" data-auto="true" data-interval="6000" aria-label="Project highlights">
@@ -629,8 +650,8 @@
 		</section>
 
 		<!-- Services -->
-		<section id="services" class="container stack-lg" aria-labelledby="services-title">
-			<h2 id="services-title">Services</h2>
+		<section id="services" class="container stack-lg fade-in" aria-labelledby="services-title">
+			<h2 id="services-title" class="fade-in">Services</h2>
 			<div class="services-grid">
 				<article class="service-card">
 					<h3>UI Design</h3>
@@ -648,8 +669,8 @@
 		</section>
 
 		<!-- Partners -->
-		<section id="partners" class="container stack-lg" aria-labelledby="partners-title">
-			<h2 id="partners-title">Partners</h2>
+		<section id="partners" class="container stack-lg fade-in" aria-labelledby="partners-title">
+			<h2 id="partners-title" class="fade-in">Partners</h2>
 			<div class="partners-grid">
 				<article class="service-card">
 					<h3>Designer</h3>
@@ -667,8 +688,8 @@
 		</section>
 
 		<!-- Skills -->
-		<section id="skills" class="container stack-lg" aria-labelledby="skills-title">
-			<h2 id="skills-title">Skills</h2>
+		<section id="skills" class="container stack-lg fade-in" aria-labelledby="skills-title">
+			<h2 id="skills-title" class="fade-in">Skills</h2>
 			<div class="skills-grid">
 				<section aria-labelledby="languages-title">
 					<h3 id="languages-title">Technical Languages</h3>
@@ -699,8 +720,8 @@
 		</section>
 
 		<!-- Contact -->
-		<section id="contact" class="container stack-lg" aria-labelledby="contact-title">
-			<h2 id="contact-title">Contact</h2>
+		<section id="contact" class="container stack-lg fade-in" aria-labelledby="contact-title">
+			<h2 id="contact-title" class="fade-in">Contact</h2>
 			<p>You can email me at <a href="mailto:paj6@njit.edu">paj6@njit.edu</a> or use the form below.</p>
 
 			<!-- Live region for form validation summary -->
@@ -936,6 +957,23 @@
 				el.addEventListener("blur", validate);
 			});
 		}
+
+		// Animation: Scroll-triggered fade-in using Intersection Observer
+		function animateOnScroll() {
+			const observer = new window.IntersectionObserver((entries) => {
+				for (const entry of entries) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("visible");
+						observer.unobserve(entry.target);
+					}
+				}
+			}, { threshold: 0.13 });
+
+			document.querySelectorAll('.fade-in').forEach(el => {
+				observer.observe(el);
+			});
+		}
+		window.addEventListener('DOMContentLoaded', animateOnScroll);
 	</script>
 </body>
 </html>
