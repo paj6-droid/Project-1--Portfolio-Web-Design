@@ -516,6 +516,32 @@
 .stagger-item { opacity: 0; transform: translateY(32px); transition: opacity 0.6s, transform 0.6s; }
 .stagger-item.visible { opacity: 1; transform: none; }
 .about-svg-visual { transition: transform 0.44s cubic-bezier(0.38,1.6,0.39,1); will-change: transform; }
+.premium-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+}
+@media (min-width: 600px) {
+  .premium-skills-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.premium-skills-col h3 {
+  font-size: 1.13rem;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+.premium-skills-col ul {
+  margin: 0 0 0 1.1rem;
+  padding: 0;
+  list-style: disc;
+}
+.premium-skills-col li {
+  margin-bottom: 0.65rem;
+  font-size: 1.025rem;
+  color: var(--color-text);
+  opacity: 0.92;
+}
 	</style>
 </head>
 <body>
@@ -714,8 +740,8 @@
 		<!-- Skills -->
 		<section id="skills" class="container stack-lg fade-in" aria-labelledby="skills-title">
 			<h2 id="skills-title" class="stagger-parent">Skills</h2>
-			<div class="skills-grid stagger-parent">
-				<section aria-labelledby="languages-title">
+			<div class="skills-grid stagger-parent premium-skills-grid">
+				<section aria-labelledby="languages-title" class="premium-skills-col">
 					<h3 id="languages-title">Technical Languages</h3>
 					<ul>
 						<li>CAD Software</li>
@@ -723,8 +749,7 @@
 						<li>Prompt Engineering</li>
 					</ul>
 				</section>
-
-				<section aria-labelledby="certifications-title">
+				<section aria-labelledby="certifications-title" class="premium-skills-col">
 					<h3 id="certifications-title">Certifications</h3>
 					<ul>
 						<li>OSHA 10 - General Industry</li>
@@ -732,9 +757,8 @@
 						<li>CPR - A Certified First Aid and CPR Provider</li>
 					</ul>
 				</section>
-
-				<section aria-labelledby="designing-and-printing-title">
-					<h3 id="designing-and-printing-title">Designing and Printing</h3>
+				<section aria-labelledby="designing-and-printing-title" class="premium-skills-col">
+					<h3 id="designing-and-printing-title">Design &amp; Printing</h3>
 					<ul>
 						<li>3D Design and Modeling</li>
 						<li>Laser Cutting and Engraving</li>
