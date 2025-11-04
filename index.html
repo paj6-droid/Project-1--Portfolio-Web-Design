@@ -39,7 +39,16 @@
 		@media(min-width:900px){.hero-grid{grid-template-columns:.7fr 1.3fr}}
 		.hero-eyebrow{display:block;color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem}
 		.hero-title{font-family:"Poppins";font-size:clamp(2.6rem,8vw,6rem);line-height:.95;margin:0}
-		.hero-sub{max-width:58ch;color:var(--muted);margin-top:1rem}
+		.hero-sub{max-width:58ch;color:var(--muted);margin-top:1rem;font-size:clamp(1.1rem,2vw,1.35rem);line-height:1.6}
+		.hero-visual{display:none;position:relative;height:100%;min-height:400px}
+		@media(min-width:900px){.hero-visual{display:block}}
+		.hero-shape{position:absolute;opacity:.15;will-change:transform}
+		.hero-shape-1{top:-80px;left:-60px;width:450px;height:450px;animation:shapeFloat1 20s ease-in-out infinite alternate}
+		.hero-shape-2{top:120px;right:-40px;width:120px;height:120px;animation:shapeFloat2 15s ease-in-out infinite alternate}
+		.hero-shape-3{bottom:-100px;right:-80px;width:500px;height:500px;animation:shapeFloat3 25s ease-in-out infinite alternate}
+		@keyframes shapeFloat1{to{transform:translate(30px,40px) rotate(12deg)}}
+		@keyframes shapeFloat2{to{transform:translate(-20px,25px) rotate(-8deg)}}
+		@keyframes shapeFloat3{to{transform:translate(-50px,-30px) rotate(15deg)}}
 
 		/* Marquee */
 		.marquee{border-block:1px solid var(--border);background:linear-gradient(180deg,#0c1110,#0b0e0f);overflow:hidden;white-space:nowrap}
@@ -171,6 +180,19 @@ main, header, .site-footer { position: relative; z-index: 1; }
 					<span class="hero-eyebrow">Clarity • Craft • Reliability</span>
 					<h1 class="hero-title">Hi, I'm Purva. Welcome to my Portfolio</h1>
 					<p class="hero-sub">I'm a software and data engineering student at NJIT. I'm passionate about building reliable, well-tested web experiences your users will love.</p>
+				</div>
+				<div class="hero-visual" aria-hidden="true">
+					<svg class="hero-shape hero-shape-1" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<defs><linearGradient id="heroGrad1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2ecc71"/><stop offset="1" stop-color="#239b56"/></linearGradient></defs>
+						<path d="M377 18q83 28 102.5 114.5T476 319.5q-42 72.5-122 154.5T183.5 418Q81 336 117.5 202.5T292 29q85-11 85 0z" fill="url(#heroGrad1)"/>
+					</svg>
+					<svg class="hero-shape hero-shape-2" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="100" cy="100" r="100" fill="#2ecc71"/>
+					</svg>
+					<svg class="hero-shape hero-shape-3" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<defs><linearGradient id="heroGrad2" x1="1" y1="0" x2="0" y2="1"><stop stop-color="#239b56"/><stop offset="1" stop-color="#1b2320"/></linearGradient></defs>
+						<path d="M307 39q87-12 140 47t44 145q-9 93-95 142.5T171 312Q64 244 125 120q47-94 182-81z" fill="url(#heroGrad2)"/>
+					</svg>
 				</div>
 			</div>
 		</section>
